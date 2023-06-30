@@ -45,6 +45,15 @@ app.get("/groceries", (req, res) => {
   res.send(groceryList);
 });
 
+// route parameters
+app.get("/groceries/:item", (req, res) => {
+  const { item } = req.params; // js destructuring
+  console.log(item);
+  const groceryItem = groceryList.find((g) => g.item === item);
+  res.send(groceryItem);
+  //res.send(req.params.item); // req.params returns a dictionary; .item is a dictionary method
+});
+
 app.post("/groceries", (req, res) => {
   console.log(req.body);
   groceryList.push(req.body);
