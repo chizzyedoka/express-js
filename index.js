@@ -1,5 +1,6 @@
 const express = require("express");
 const groceriesRoute = require("./routes/groceries");
+const supermarketsRoute = require("./routes/markets");
 
 const app = express();
 const PORT = 3001;
@@ -16,6 +17,7 @@ app.listen(PORT, () => {
 });
 
 app.use("/api", groceriesRoute); // prefix route with /api
+app.use("/supermarkets", supermarketsRoute);
 
 app.get(
   "/",
