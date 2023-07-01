@@ -1,4 +1,5 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const groceriesRoute = require("./routes/groceries");
 const supermarketsRoute = require("./routes/markets");
 
@@ -11,6 +12,8 @@ app.use((req, res, next) => {
   console.log(req.url);
   next();
 });
+
+app.use(cookieParser());
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
